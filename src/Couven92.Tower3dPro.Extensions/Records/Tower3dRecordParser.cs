@@ -54,6 +54,9 @@ namespace Couven92.Tower3dPro.Extensions.Records
         private static T ParseCommaDelimitedFields<T>(ReadOnlySpan<char> span, int fieldCount, Func<string[], T> fieldsToRecord) =>
             ParseDelimitedFields(span, ',', fieldCount, fieldsToRecord);
 
+        private static T ParseColonDelimitedFields<T>(ReadOnlySpan<char> span, int fieldCount, Func<string[], T> fieldsToRecord) =>
+            ParseDelimitedFields(span, ':', fieldCount, fieldsToRecord);
+
         [SuppressMessage("Usage", "PC001: API not supported on all platforms", Justification = "https://github.com/dotnet/platform-compat/issues/123")]
         private static T ParseDelimitedFields<T>(ReadOnlySpan<char> span, char delimiter, int fieldCount, Func<string[], T> fieldsToRecord)
         {

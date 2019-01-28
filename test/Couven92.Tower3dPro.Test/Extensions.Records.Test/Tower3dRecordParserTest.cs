@@ -182,5 +182,83 @@ TIST, MDPC, 11:40, CNF, N001FT, 0, 0, 0, 001FT, ZERO ONE FOX TANGO
                 }
             }
         }
+
+        [Fact]
+        public static void CanParseSchedule()
+        {
+            const string sampleString = @"STX, STT, CNA, 9K, 8591, 16:12, 12:00, 1, 9K
+SJU, STT, 320, B6, 1036, 16:07, 12:00, 1, B6
+NCM, STT, DH3, LI,  550, 15:55, 12:00, 1, LI
+SJU, STT, SF3, BB, 3593, 15:47, 12:00, 1, BB
+FLL, STT, 319, NK,  201, 15:18, 12:00, 1, NK
+MIA, STT, 73H, AA, 2421, 15:15, 12:00, 1, AA
+CLT, STT, 752, AA,  833, 15:11, 12:00, 1, AA
+STX, STT, CNA, 9K, 8531, 14:52, 12:00, 1, 9K
+MIA, STT, 752, AA, 1391, 14:50, 12:00, 1, AA
+BOS, STT, 320, B6,  807, 14:39, 12:00, 1, B6
+";
+            using (var reader = new StringReader(sampleString))
+            {
+                var parsedMemory = Tower3dRecordParser.ParseScheduleRecords(reader)
+                    .GetAwaiter().GetResult();
+                var parsedSpan = parsedMemory.Span;
+                Span<Tower3dScheduleRecord> expectedRecords = new[]
+                {
+                    new Tower3dScheduleRecord{OriginAirportIata="STX", DestinationAirportIata="STT", AirplaneTypeIata="CNA", AirlineIata="9K", FlightNumber="8591", ArrivalTime=new TimeSpan(16,12,0)},
+                    new Tower3dScheduleRecord{OriginAirportIata="SJU", DestinationAirportIata="STT", AirplaneTypeIata="320", AirlineIata="B6", FlightNumber="1036", ArrivalTime=new TimeSpan(16,07,0)},
+                    new Tower3dScheduleRecord{OriginAirportIata="NCM", DestinationAirportIata="STT", AirplaneTypeIata="DH3", AirlineIata="LI", FlightNumber="550", ArrivalTime=new TimeSpan(15,55,0)},
+                    new Tower3dScheduleRecord{OriginAirportIata="SJU", DestinationAirportIata="STT", AirplaneTypeIata="SF3", AirlineIata="BB", FlightNumber="3593", ArrivalTime=new TimeSpan(15,47,0)},
+                    new Tower3dScheduleRecord{OriginAirportIata="FLL", DestinationAirportIata="STT", AirplaneTypeIata="319", AirlineIata="NK", FlightNumber="201", ArrivalTime=new TimeSpan(15,18,0)},
+                    new Tower3dScheduleRecord{OriginAirportIata="MIA", DestinationAirportIata="STT", AirplaneTypeIata="73H", AirlineIata="AA", FlightNumber="2421", ArrivalTime=new TimeSpan(15,15,0)},
+                    new Tower3dScheduleRecord{OriginAirportIata="CLT", DestinationAirportIata="STT", AirplaneTypeIata="752", AirlineIata="AA", FlightNumber="833", ArrivalTime=new TimeSpan(15,11,0)},
+                    new Tower3dScheduleRecord{OriginAirportIata="STX", DestinationAirportIata="STT", AirplaneTypeIata="CNA", AirlineIata="9K", FlightNumber="8531", ArrivalTime=new TimeSpan(14,52,0)},
+                    new Tower3dScheduleRecord{OriginAirportIata="MIA", DestinationAirportIata="STT", AirplaneTypeIata="752", AirlineIata="AA", FlightNumber="1391", ArrivalTime=new TimeSpan(14,50,0)},
+                    new Tower3dScheduleRecord{OriginAirportIata="BOS", DestinationAirportIata="STT", AirplaneTypeIata="320", AirlineIata="B6", FlightNumber="807", ArrivalTime=new TimeSpan(14,39,0)},
+                };
+                Assert.Equal(expectedRecords.Length, parsedSpan.Length);
+                for (int i = 0; i < parsedSpan.Length; i++)
+                {
+                    ref readonly Tower3dScheduleRecord expected = ref expectedRecords[i];
+                    ref readonly Tower3dScheduleRecord actual = ref parsedSpan[i];
+                    Assert.Equal(expected.OriginAirportIata, actual.OriginAirportIata, ignoreCase: true);
+                    Assert.Equal(expected.DestinationAirportIata, actual.DestinationAirportIata, ignoreCase: true);
+                    Assert.Equal(expected.AirplaneTypeIata, actual.AirplaneTypeIata, ignoreCase: true);
+                    Assert.Equal(expected.AirlineIata, actual.AirlineIata, ignoreCase: true);
+                    Assert.Equal(expected.FlightNumber, actual.FlightNumber, ignoreCase: true);
+                    Assert.Equal(expected.ArrivalTime, actual.ArrivalTime);
+                }
+            }
+        }
+
+        [Fact]
+        public static void CanParseTerminal()
+        {
+            const string sampleString = @"Terminal_1: AAL,DAL,JBU,KAP,LIA,NKS,SBS,SCX,UAL
+Terminal_GA: GA
+";
+            using (var reader = new StringReader(sampleString))
+            {
+                var parsedMemory = Tower3dRecordParser.ParseTerminalRecords(reader)
+                    .GetAwaiter().GetResult();
+                var parsedSpan = parsedMemory.Span;
+                Span<Tower3dTerminalRecord> expectedRecords = new[]
+                {
+                    new Tower3dTerminalRecord { Name = "Terminal_1", AirlineIcaoIdentifiers = new[] { "AAL", "DAL", "JBU", "KAP", "LIA", "NKS", "SBS", "SCX", "UAL" }.AsMemory() },
+                    new Tower3dTerminalRecord { Name = "Terminal_GA", AirlineIcaoIdentifiers = new[] { "GA" }.AsMemory() },
+                };
+                Assert.Equal(expectedRecords.Length, parsedSpan.Length);
+                for (int i = 0; i < parsedSpan.Length; i++)
+                {
+                    ref readonly Tower3dTerminalRecord expected = ref expectedRecords[i];
+                    ref readonly Tower3dTerminalRecord actual = ref parsedSpan[i];
+                    Assert.Equal(expected.Name, actual.Name, ignoreCase: true);
+                    Assert.Equal(expected.AirlineIcaoIdentifiers.Length, actual.AirlineIcaoIdentifiers.Length);
+                    var expectedAirlinesSpan = expected.AirlineIcaoIdentifiers.Span;
+                    var actualAirlinesSpan = actual.AirlineIcaoIdentifiers.Span;
+                    for (int j = 0; j < actualAirlinesSpan.Length; j++)
+                        Assert.Equal(expectedAirlinesSpan[j], actualAirlinesSpan[j], ignoreCase: true);
+                }
+            }
+        }
     }
 }

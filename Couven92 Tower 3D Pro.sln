@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7E604F04-A2BC-4C29-909A-65F80D585317}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Couven92.Tower3dPro.Extensions.Records", "src\Couven92.Tower3dPro.Extensions.Records\Couven92.Tower3dPro.Extensions.Records.csproj", "{1345258D-5E7D-4398-8601-2D5BA510919E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Couven92.Tower3dPro.Extensions", "src\Couven92.Tower3dPro.Extensions\Couven92.Tower3dPro.Extensions.csproj", "{1345258D-5E7D-4398-8601-2D5BA510919E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotnet-common", "dotnet-common", "{5D6A65D5-9117-49BA-AAC6-6611993255DA}"
 EndProject

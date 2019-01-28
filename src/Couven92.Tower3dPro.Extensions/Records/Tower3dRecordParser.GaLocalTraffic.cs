@@ -8,7 +8,7 @@ namespace Couven92.Tower3dPro.Extensions.Records
     public static partial class Tower3dRecordParser
     {
         public static Task<ReadOnlyMemory<Tower3dGaLocalTrafficRecord>> ParseGaLocalTrafficRecords(TextReader textReader) =>
-                    ParseRecordsAsync<Tower3dGaLocalTrafficRecord>(textReader, TryParseGaLocalTrafficRecord);
+            ParseRecordsAsync<Tower3dGaLocalTrafficRecord>(textReader, TryParseGaLocalTrafficRecord);
 
         private static bool TryParseGaLocalTrafficRecord(ReadOnlySpan<char> span, out Tower3dGaLocalTrafficRecord record)
         {
