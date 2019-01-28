@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/Couven92 Tower 3D Pro.sln"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "test",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "test",
+        "${workspaceFolder}/test/Couven92.Tower3dPro.Test/Couven92.Tower3dPro.Test.csproj"
+      ],
+      "problemMatcher": "$msCompile"
+    }
+  ]
+}
