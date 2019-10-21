@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
-using THNETII.Common.Serialization;
+
+using THNETII.TypeConverter;
 
 namespace Couven92.Tower3dPro.Extensions.Records
 {
