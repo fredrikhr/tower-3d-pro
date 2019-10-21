@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 
-using THNETII.TypeConverter;
+using THNETII.TypeConverter.Serialization;
 
 namespace Couven92.Tower3dPro.Extensions.Records
 {
@@ -80,7 +80,7 @@ namespace Couven92.Tower3dPro.Extensions.Records
 
         public override string ToString()
         {
-            var modifier = EnumStringConverter.ToString(EastWest);
+            var modifier = EnumMemberStringConverter.ToString(EastWest);
             return FormattableString.Invariant($"{Coordinates}° {modifier}");
         }
     }

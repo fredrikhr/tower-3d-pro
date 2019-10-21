@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Threading.Tasks;
 
-using THNETII.TypeConverter;
+using THNETII.TypeConverter.Serialization;
 
 namespace Couven92.Tower3dPro.Extensions.Records
 {
@@ -21,11 +21,11 @@ namespace Couven92.Tower3dPro.Extensions.Records
                 var lat = double.TryParse(fields[2], floatNumberStyle, invariant, out double latCoords)
                     ? new LatitudeCoordinates { Coordinates = latCoords }
                     : default;
-                lat.NorthSouth = EnumStringConverter.ParseOrDefault<LatitudeCoordinates.Modifier>(fields[3]);
+                lat.NorthSouth = EnumMemberStringConverter.ParseOrDefault<LatitudeCoordinates.Modifier>(fields[3]);
                 var lon = double.TryParse(fields[4], floatNumberStyle, invariant, out double lonCoords)
                     ? new LongitudeCoordinates { Coordinates = lonCoords }
                     : default;
-                lon.EastWest = EnumStringConverter.ParseOrDefault<LongitudeCoordinates.Modifier>(fields[5]);
+                lon.EastWest = EnumMemberStringConverter.ParseOrDefault<LongitudeCoordinates.Modifier>(fields[5]);
                 return new Tower3dAirportRecord
                 {
                     IataIdentifier = fields[0],
