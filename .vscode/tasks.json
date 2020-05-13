@@ -7,7 +7,7 @@
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}/Couven92 Tower 3D Pro.sln"
+        "${workspaceFolder}/FredrikHr Tower 3D Pro.sln"
       ],
       "problemMatcher": "$msCompile"
     },
@@ -17,7 +17,7 @@
       "type": "process",
       "args": [
         "test",
-        "${workspaceFolder}/test/Couven92.Tower3dPro.Test/Couven92.Tower3dPro.Test.csproj"
+        "${workspaceFolder}/test/FredrikHr.Tower3dPro.Test/FredrikHr.Tower3dPro.Test.csproj"
       ],
       "problemMatcher": "$msCompile"
     }

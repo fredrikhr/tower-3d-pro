@@ -2,7 +2,7 @@
 using System.IO;
 using Xunit;
 
-namespace Couven92.Tower3dPro.Extensions.Records.Test
+namespace FredrikHr.Tower3dPro.Extensions.Records.Test
 {
     public static class Tower3dRecordParserTest
     {

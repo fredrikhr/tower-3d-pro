@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 
 using THNETII.TypeConverter.Serialization;
 
-namespace Couven92.Tower3dPro.Extensions.Records
+namespace FredrikHr.Tower3dPro.Extensions.Records
 {
     public struct LatitudeCoordinates : IEquatable<LatitudeCoordinates>, IEquatable<double>
     {

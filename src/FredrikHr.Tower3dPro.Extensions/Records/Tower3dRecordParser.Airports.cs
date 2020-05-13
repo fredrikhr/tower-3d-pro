@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 using THNETII.TypeConverter.Serialization;
 
-namespace Couven92.Tower3dPro.Extensions.Records
+namespace FredrikHr.Tower3dPro.Extensions.Records
 {
     public static partial class Tower3dRecordParser
     {

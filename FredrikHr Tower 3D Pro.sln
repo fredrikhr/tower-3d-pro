@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7E604F04-A2BC-4C29-909A-65F80D585317}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Couven92.Tower3dPro.Extensions", "src\Couven92.Tower3dPro.Extensions\Couven92.Tower3dPro.Extensions.csproj", "{1345258D-5E7D-4398-8601-2D5BA510919E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FredrikHr.Tower3dPro.Extensions", "src\FredrikHr.Tower3dPro.Extensions\FredrikHr.Tower3dPro.Extensions.csproj", "{1345258D-5E7D-4398-8601-2D5BA510919E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotnet-common", "dotnet-common", "{5D6A65D5-9117-49BA-AAC6-6611993255DA}"
 EndProject
@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "THNETII.Common", "dotnet-co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{76F40838-2CB8-43A3-9AD4-4640691E5C4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Couven92.Tower3dPro.Test", "test\Couven92.Tower3dPro.Test\Couven92.Tower3dPro.Test.csproj", "{7392D3DE-6829-4CDC-BF9A-0432B4FFCBE8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FredrikHr.Tower3dPro.Test", "test\FredrikHr.Tower3dPro.Test\FredrikHr.Tower3dPro.Test.csproj", "{7392D3DE-6829-4CDC-BF9A-0432B4FFCBE8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "THNETII.TypeConverter", "dotnet-common\src\THNETII.TypeConverter\THNETII.TypeConverter.csproj", "{B786B451-A7F4-43BA-A09C-D78D0E1F990E}"
 EndProject

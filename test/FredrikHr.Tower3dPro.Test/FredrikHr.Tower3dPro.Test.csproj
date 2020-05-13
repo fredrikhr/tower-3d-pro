@@ -4,7 +4,7 @@
   <PropertyGroup>
     <LangVersion>7.3</LangVersion>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <RootNamespace>Couven92.Tower3dPro</RootNamespace>
+    <RootNamespace>FredrikHr.Tower3dPro</RootNamespace>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Couven92.Tower3dPro.Extensions\Couven92.Tower3dPro.Extensions.csproj" />
+    <ProjectReference Include="..\..\src\FredrikHr.Tower3dPro.Extensions\FredrikHr.Tower3dPro.Extensions.csproj" />
   </ItemGroup>
 
 </Project>
